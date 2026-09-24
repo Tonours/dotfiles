@@ -1,0 +1,40 @@
+# dotfiles — public-safe. No credentials ever.
+# Secrets, tokens, keys, session state: local only, never commit.
+
+# env / secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+*secret*
+*token*
+*credentials*
+auth.db*
+*.sqlite
+*.db-shm
+*.db-wal
+
+# agent runtimes (local state)
+.codex/
+.claude/
+.pi/
+.workflow/
+.mcp.json
+claude/auth*
+pi/auth*
+
+# OS / editors
+.DS_Store
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.bak.[0-9]*-[0-9]*
+
+# plans locaux (le workflow etabli les exclut aussi via .git/info/exclude)
+/PLAN.md
+/PLAN-*.md
