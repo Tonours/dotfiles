@@ -192,6 +192,12 @@ type = "plugin_action"
 command = "etabli.obvault.obvault-session"
 description = "obvault session pack"
 
+[[keys.command]]
+key = "prefix+a"
+type = "plugin_action"
+command = "herdr-projects.open-popup"
+description = "Projects"
+
 [worktrees]
 # Parallel agent branches next to real repos under ~/work
 directory = "~/work/worktrees"
@@ -223,6 +229,7 @@ tab_bar_position = "top"
 agent_panel_sort = "priority"
 # Mauve accent (matches tmux current-window pill)
 accent = "#cba6f7"
+tab_bar_right = [{ type = "command", command = "/Users/aguimard/.config/herdr/plugins/github/herdr-projects-b1278ffb803c/target/release/herdr-projects --root /Users/aguimard/.herdr-projects needs-you --line", interval_seconds = 15, timeout_seconds = 5 }]
 
 # Dense multi-agent sidebar: state + identity + live title
 [ui.sidebar.agents]
@@ -230,41 +237,41 @@ row_gap = 0
 rows = [
   ["state_icon", "machine", "agent", "state_text"],
   ["workspace", "tab"],
-  ["terminal_title_stripped"],
+  ["terminal_title_stripped"], [{ token = "$hp_state", rules = [{ starts_with = "needs you", fg = "#f38ba8", bold = true }, { starts_with = "review", fg = "#f9e2af" }] }], [{ token = "$hp_activity", dim = true }],
 ]
 
 [ui.sidebar.agents.rows_by_agent]
 claude = [
   ["state_icon", "machine", "agent", "state_text"],
   ["terminal_title_stripped"],
-  ["workspace", "tab"],
+  ["workspace", "tab"], [{ token = "$hp_state", rules = [{ starts_with = "needs you", fg = "#f38ba8", bold = true }, { starts_with = "review", fg = "#f9e2af" }] }], [{ token = "$hp_activity", dim = true }],
 ]
 codex = [
   ["state_icon", "machine", "agent", "state_text"],
   ["terminal_title_stripped"],
-  ["workspace", "tab"],
+  ["workspace", "tab"], [{ token = "$hp_state", rules = [{ starts_with = "needs you", fg = "#f38ba8", bold = true }, { starts_with = "review", fg = "#f9e2af" }] }], [{ token = "$hp_activity", dim = true }],
 ]
 grok = [
   ["state_icon", "machine", "agent", "state_text"],
   ["terminal_title_stripped"],
-  ["workspace", "tab"],
+  ["workspace", "tab"], [{ token = "$hp_state", rules = [{ starts_with = "needs you", fg = "#f38ba8", bold = true }, { starts_with = "review", fg = "#f9e2af" }] }], [{ token = "$hp_activity", dim = true }],
 ]
 opencode = [
   ["state_icon", "machine", "agent", "state_text"],
   ["terminal_title_stripped"],
-  ["workspace", "tab"],
+  ["workspace", "tab"], [{ token = "$hp_state", rules = [{ starts_with = "needs you", fg = "#f38ba8", bold = true }, { starts_with = "review", fg = "#f9e2af" }] }], [{ token = "$hp_activity", dim = true }],
 ]
 pi = [
   ["state_icon", "machine", "agent", "state_text"],
   ["terminal_title_stripped"],
-  ["workspace", "tab"],
+  ["workspace", "tab"], [{ token = "$hp_state", rules = [{ starts_with = "needs you", fg = "#f38ba8", bold = true }, { starts_with = "review", fg = "#f9e2af" }] }], [{ token = "$hp_activity", dim = true }],
 ]
 
 [ui.sidebar.spaces]
 row_gap = 0
 rows = [
   ["state_icon", "workspace"],
-  ["branch", "git_status"],
+  ["branch", "git_status"], [{ token = "$hp" }],
 ]
 
 # OS notifications when a background agent finishes / blocks
