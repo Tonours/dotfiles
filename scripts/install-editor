@@ -194,6 +194,10 @@ if [[ "$OS" != "mac" ]]; then
   fc-cache -fv >/dev/null 2>&1 || true
 fi
 
-print_success "Nerd Font installed"
+if [ -f ~/.local/share/fonts/CaskaydiaMonoNerdFont-Regular.ttf ]; then
+  print_success "Nerd Font installed"
+else
+  print_warning "Nerd Font not installed"
+fi
 
 printf '\nNext: scripts/fix-links --fix, then nvim (Copilot: :LspCopilotSignIn), tmux (plugins: prefix + I).\n'
